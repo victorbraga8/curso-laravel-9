@@ -14,13 +14,14 @@ class UserController extends Controller
     {   
         $this->model = $user;    
     }
-    
+
     public function index(Request $request){
 
         // $users = User::where('name', 'LIKE', "%{$request->search}%")->get();        
         $search = $request->search;
         // $users = $this->model->getUsers(search: $request->get('search', ''));                          
         $users = $this->model->getUsers($search);
+ 
         return view('users.index', ['users'=> $users]);
     }
 
